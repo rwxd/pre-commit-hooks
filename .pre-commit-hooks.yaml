@@ -5,3 +5,16 @@
   entry: hooks/terraform-fmt
   language: script
   files: (\.tf|\.tfvars)$
+
+- id: shfmt
+  name: Check shell script style with shfmt
+  language: script
+  entry: hooks/shfmt
+  types: [shell]
+
+- id: shellcheck
+  name: Check shell scripts with shellcheck
+  entry: hooks/shellcheck
+  language: script
+  types: [shell]
+  args: [-e, SC1091]

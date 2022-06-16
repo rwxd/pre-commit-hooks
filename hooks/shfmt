@@ -7,15 +7,7 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 # shellcheck source=hooks/_common.sh
 source "$SCRIPT_DIR/_common.sh"
 
-common::check-command terraform
+common::check-command shfmt
 
-filearray=("$@")
-
-exit_code=0
-for file in "${filearray[@]}"; do
-	if ! terraform fmt "$file"; then
-		exit_code=$?
-	fi
-done
-
-exit $exit_code
+readonly cmd="shfmt -w $*"
+${cmd}

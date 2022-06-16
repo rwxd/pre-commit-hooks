@@ -10,3 +10,17 @@ repos:
     - id: double-quote-string-fixer
     - id: requirements-txt-fixer
     - id: no-commit-to-branch
+
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: shellcheck (local)
+        language: script
+        entry: hooks/shellcheck
+        types: [shell]
+
+      - id: shfmt
+        name: shfmt (local)
+        language: script
+        entry: hooks/shfmt
+        types: [shell]
