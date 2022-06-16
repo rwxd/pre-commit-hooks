@@ -1,0 +1,7 @@
+---
+- id: terraform-fmt
+  name: terraform-fmt
+  description: Format terraform files
+  entry: hooks/terraform-fmt
+  language: script
+  files: (\.tf|\.tfvars)$

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+filearray=("$@")
+
+function format {
+	local -r file="$1"
+	terraform fmt "$file"
+	return $?
+}
+
+exit_code=0
+for file in "${filearray[@]}"; do
+	format "$file"
+	if [ $? -ne 0 ]; then
+		exit_code=$?
+		echo "Formatted $file with \"terraform fmt\""
+	fi
+done
+
+exit $exit_code
