@@ -1,0 +1,9 @@
+---
+# These settings are synced to GitHub by https://probot.github.io/apps/settings/
+
+_extends: gh-templates:.github/common-settings.yml
+
+repository:
+  name: "pre-commit-hooks"
+  description: "pre-commit hook collection"
+  topics: "pre-commit, hooks"
