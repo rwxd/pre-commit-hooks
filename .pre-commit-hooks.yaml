@@ -14,14 +14,14 @@
 
 - id: shfmt-docker
   name: Check shell script style with shfmt trough a docker container
+  entry: docker.io/mvdan/shfmt
   language: docker_image
   types: [shell]
   args: ["-w"]
-  entry: docker.io/mvdan/shfmt
 
 - id: shellcheck
   name: Check shell scripts with shellcheck
   entry: hooks/shellcheck
   language: script
   types: [shell]
-  args: [-e, SC1091]
+  args: ["-e", "SC1091"]
