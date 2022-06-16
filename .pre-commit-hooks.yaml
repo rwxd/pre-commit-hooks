@@ -12,6 +12,13 @@
   entry: hooks/shfmt
   types: [shell]
 
+- id: shfmt-docker
+  name: Check shell script style with shfmt trough a docker container
+  language: docker_image
+  types: [shell]
+  args: ["-w"]
+  entry: docker.io/mvdan/shfmt
+
 - id: shellcheck
   name: Check shell scripts with shellcheck
   entry: hooks/shellcheck

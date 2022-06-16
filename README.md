@@ -9,10 +9,9 @@
   - id: shellcheck
     args: [-e, SC1091]
 
-- repo: https://github.com/rwxd/pre-commit-hooks
-  rev: main
-  hooks:
   - id: shfmt
+
+  - id: shfmt-docker
 ```
 
 ## Terraform
