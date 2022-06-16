@@ -3,8 +3,7 @@
 filearray=("$@")
 
 function format {
-	local -r file="$1"
-	terraform fmt "$file"
+	terraform fmt "$1"
 	return $?
 }
 
