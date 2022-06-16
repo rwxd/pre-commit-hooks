@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-filearray=("$@")
+set -e -o pipefail
 
-function format {
-	terraform fmt "$1"
-	return $?
-}
+if ! command -v terraform &> /dev/null ; then
+    echo "terraform not installed or available in the PATH" >&2
+    exit 1
+fi
+
+filearray=("$@")
 
 exit_code=0
 for file in "${filearray[@]}"; do
-	format "$file"
+	terraform fmt "$1"
+
 	if [ $? -ne 0 ]; then
 		exit_code=$?
 	fi
