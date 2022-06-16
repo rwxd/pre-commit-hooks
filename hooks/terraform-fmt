@@ -3,8 +3,7 @@
 filearray=("$@")
 
 function format {
-	local -r file="$1"
-	terraform fmt "$file"
+	terraform fmt "$1"
 	return $?
 }
 
@@ -13,7 +12,6 @@ for file in "${filearray[@]}"; do
 	format "$file"
 	if [ $? -ne 0 ]; then
 		exit_code=$?
-		echo "Formatted $file with \"terraform fmt\""
 	fi
 done
 
